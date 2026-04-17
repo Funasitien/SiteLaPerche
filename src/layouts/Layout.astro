@@ -1,0 +1,12 @@
+---
+import "../assets/app.css"
+import Head from "./Head.astro";
+---
+
+<!DOCTYPE html>
+<html lang="fr" data-theme="perche-light">
+    <Head title={Astro.props.title} />
+    <body>
+        <slot />
+    </body>
+</html>

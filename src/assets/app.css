@@ -1,2 +1,65 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: "perche-light";
+  default: false;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: oklch(100% 0 0);
+  --color-base-200: oklch(98% 0 0);
+  --color-base-300: oklch(95% 0 0);
+  --color-base-content: oklch(21% 0.006 285.885);
+  --color-primary: #FBDCA0;
+  --color-primary-content: #9d6b07;
+  --color-secondary: #A2C0FB;
+  --color-secondary-content: #05276D;
+  --color-accent: #05276D;
+  --color-accent-content: #A2C0FB;
+  --color-neutral: oklch(14% 0.005 285.823);
+  --color-neutral-content: oklch(92% 0.004 286.32);
+  --color-info: oklch(90% 0.058 230.902);
+  --color-info-content: oklch(29% 0.066 243.157);
+  --color-success: oklch(92% 0.084 155.995);
+  --color-success-content: oklch(39% 0.095 152.535);
+  --color-warning: oklch(90% 0.076 70.697);
+  --color-warning-content: oklch(41% 0.112 45.904);
+  --color-error: oklch(80% 0.114 19.571);
+  --color-error-content: oklch(39% 0.141 25.723);
+  --radius-selector: 2rem;
+  --radius-field: 2rem;
+  --radius-box: 2rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.28125rem;
+  --border: 0.5px;
+  --depth: 1;
+  --noise: 1;
+}
+
+
+@layer components {
+  .btn {
+    box-shadow: 0 4px 0 0 oklch(var(--color-error));
+    transition: all 0.1s ease-in-out;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 0 oklch(var(--color-error));
+  }
+
+  .btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 0px 0 0 oklch(var(--color-error));
+  }
+
+  .alert {
+    box-shadow: 0 4px 0 0 oklch(var(--color-error));
+    transition: all 0.1s ease-in-out;
+  }
+
+  .alert:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 0 oklch(var(--color-error));
+  }
+}
