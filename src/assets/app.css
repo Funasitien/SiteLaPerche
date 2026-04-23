@@ -39,27 +39,47 @@
 
 @layer components {
   .btn {
-    box-shadow: 0 4px 0 0 oklch(var(--color-error));
-    transition: all 0.1s ease-in-out;
+    @apply border-2;
+    --shadow-color: var(--color-neutral);
+    box-shadow: 0 4px 0 0 var(--shadow-color) !important;
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
+
+  /* Color variant support */
+  .btn-primary { --shadow-color: var(--color-primary-content); }
+  .btn-secondary { --shadow-color: var(--color-secondary-content); }
+  .btn-accent { --shadow-color: var(--color-accent-content); }
+  .btn-info { --shadow-color: var(--color-info-content); }
+  .btn-success { --shadow-color: var(--color-success-content); }
+  .btn-warning { --shadow-color: var(--color-warning-content); }
+  .btn-error { --shadow-color: var(--color-error-content); }
+  .btn-neutral { --shadow-color: oklch(0% 0 0); }
 
   .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 0 0 oklch(var(--color-error));
+    box-shadow: 0 6px 0 0 var(--shadow-color) !important;
   }
 
   .btn:active {
     transform: translateY(2px);
-    box-shadow: 0 0px 0 0 oklch(var(--color-error));
+    box-shadow: 0 0px 0 0 var(--shadow-color) !important;
   }
 
   .alert {
-    box-shadow: 0 4px 0 0 oklch(var(--color-error));
-    transition: all 0.1s ease-in-out;
+    @apply border-2 font-bold;
+    --shadow-color: var(--color-neutral);
+    box-shadow: 0 4px 0 0 var(--shadow-color);
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
+
+  /* Alert color variants */
+  .alert-info { --shadow-color: var(--color-info-content); }
+  .alert-success { --shadow-color: var(--color-success-content); }
+  .alert-warning { --shadow-color: var(--color-warning-content); }
+  .alert-error { --shadow-color: var(--color-error-content); }
 
   .alert:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 0 0 oklch(var(--color-error));
+    box-shadow: 0 6px 0 0 var(--shadow-color);
   }
 }

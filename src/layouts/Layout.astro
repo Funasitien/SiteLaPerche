@@ -1,12 +1,14 @@
 ---
 import "../assets/app.css"
 import Head from "./Head.astro";
+import Navbar from "../components/Navbar.astro";
 ---
 
 <!DOCTYPE html>
 <html lang="fr" data-theme="perche-light">
     <Head title={Astro.props.title} />
-    <body>
+    <body class="p-2 md:p-4 min-h-screen">
+        <Navbar />
         <slot />
     </body>
 </html>
