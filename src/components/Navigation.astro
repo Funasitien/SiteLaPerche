@@ -1,32 +1,33 @@
 ---
 const navItems = [
-  { label: "Home", href: "/" },
-  { 
-    label: "Services", 
-    children: [
-      { label: "Design", href: "/services/design" },
-      { label: "Development", href: "/services/development" },
-      { label: "Marketing", href: "/services/marketing" },
-    ]
-  },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { icon: "mingcute:home-5-fill", label: "Accueil", href: "/" },
+  { icon: "mingcute:heart-hand-fill", label: "Nous rejoindre", href: "#" }
 ];
+
+import { Icon } from "astro-icon/components";
 ---
 
 {navItems.map((item) => (
   <li>
     {item.children ? (
       <details>
-        <summary>{item.label}</summary>
+        <summary>
+            {item.icon && <Icon name={item.icon} />}
+            {item.label}</summary>
         <ul>
           {item.children.map((child) => (
-            <li><a href={child.href}>{child.label}</a></li>
+            <li><a href={child.href}>
+                {child.icon && <Icon name={child.icon} />}
+                {child.label}
+            </a></li>
           ))}
         </ul>
       </details>
     ) : (
-      <a href={item.href}>{item.label}</a>
+      <a href={item.href}>
+        {item.icon && <Icon name={item.icon} />}
+        {item.label}
+      </a>
     )}
   </li>
 ))}

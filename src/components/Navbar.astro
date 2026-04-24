@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import Navigation from "./Navigation.astro";
+import logo from "../assets/laperche.png";
 ---
 
 <header class="space-y-4">
@@ -22,10 +24,10 @@ import Navigation from "./Navigation.astro";
           </svg>
         </label>
       </div>
-            <img class="hidden md:block ml-8 h-16 w-auto" src="/laperche.png"/>
+            <Image class="hidden md:block ml-8 h-16 w-auto" src={logo} alt="La Perche Logo"/>
         </div>
         <div class="navbar-center">
-            <img class="md:hidden ml-8 h-16 w-auto" src="/laperche.png"/>
+            <Image class="md:hidden ml-8 h-16 w-auto" src={logo} alt="La Perche Logo"/>
             <ul class="menu menu-horizontal px-1 hidden md:flex">
                 <Navigation />
             </ul>

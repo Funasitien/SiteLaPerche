@@ -1,0 +1,94 @@
+---
+import { Image } from 'astro:assets';
+
+// Asset imports for the images
+import alexImg from '../assets/avatars/Alex.png';
+import eloImg from '../assets/avatars/Elo_contente.png';
+import funaImg from '../assets/avatars/Funa.png';
+import gabrielImg from '../assets/avatars/Gabriel.png';
+import leonaImg from '../assets/avatars/Leona.png';
+import thomasImg from '../assets/avatars/Thomas.png';
+import zamImg from '../assets/avatars/Zam.png';
+
+// Hardcoded member data for easy editing
+const memberData = [
+  { name: "Alexandre", role: "Membre de l'équipe", img: alexImg },
+  { name: "Élodie", role: "Fâchée", img: eloImg },
+  { name: "Guilhem", role: "Défaut", img: funaImg },
+  { name: "Gabriel", role: "Membre de l'équipe", img: gabrielImg },
+  { name: "Leona", role: "Membre de l'équipe", img: leonaImg },
+  { name: "Thomas", role: "Membre de l'équipe", img: thomasImg },
+  { name: "Zamuel", role: "Membre de l'équipe", img: zamImg },
+];
+---
+
+<div class="overflow-x-clip bg-primary text-primary-content mt-2 md:mt-4 p-2 rounded-box min-h-56 pb-20">
+  <h2 class="text-3xl font-bold mb-4 text-center py-2">Nos membres</h2>
+  <div class="flex whitespace-nowrap animate-scroll">
+    {/* First set of images */}
+    <div class="flex gap-8 items-center px-4">
+      {memberData.map((member) => (
+        <div class="tooltip tooltip-bottom" data-tip={`${member.name}\n${member.role}`}>
+          <div class="w-32 h-32 flex-shrink-0 bg-secondary rounded-full">
+            <Image 
+              src={member.img} 
+              alt={member.name} 
+              class="w-full h-full p-4 object-contain"
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    {/* Duplicate set for seamless looping */}
+    <div class="flex gap-8 items-center px-4" aria-hidden="true">
+      {memberData.map((member) => (
+        <div class="tooltip tooltip-bottom" data-tip={`${member.name}\n${member.role}`}>
+          <div class="w-32 h-32 flex-shrink-0 bg-secondary rounded-full">
+            <Image 
+              src={member.img} 
+              alt={member.name} 
+              class="w-full h-full p-4 object-contain"
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .tooltip {
+    --tooltip-color: var(--color-secondary);
+    --tooltip-text-color: var(--color-secondary-content);
+  }
+  
+  /* Styling name and role differently within the tooltip */
+  .tooltip:before {
+    white-space: pre;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+    width: max-content;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Optional: Pause on hover 
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+  */
+</style>
