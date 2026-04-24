@@ -1,0 +1,73 @@
+---
+interface Props {
+	id: string;
+	title: string;
+	description: string;
+}
+
+const { id, title, description } = Astro.props;
+---
+
+<div class="card bg-base-100 border-2 border-secondary-content overflow-hidden youtube-card-container">
+	<div class="relative aspect-video group">
+		<div
+			id={`youtube-placeholder-${id}`}
+			class="absolute inset-0 flex flex-col items-center justify-center bg-neutral text-neutral-content p-4 text-center transition-opacity youtube-placeholder"
+		>
+			<div class="mb-4">
+				<p class="text-sm mb-2">
+					En cliquant sur "Lire la vidéo", vous acceptez l'utilisation de cookies par YouTube.
+				</p>
+				<button
+					class="btn btn-primary btn-sm accept-youtube-cookies"
+					data-video-id={id}
+				>
+					Lire la vidéo
+				</button>
+			</div>
+		</div>
+		<iframe
+			id={`youtube-iframe-${id}`}
+			class="absolute inset-0 w-full h-full hidden youtube-iframe"
+			data-src={`https://www.youtube.com/embed/${id}`}
+			frameborder="0"
+			allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			allowfullscreen
+		></iframe>
+	</div>
+	<div class="card-body p-4">
+		<h3 class="card-title text-lg">{title}</h3>
+		<p class="text-sm opacity-80">{description}</p>
+	</div>
+</div>
+
+<script>
+	const STORAGE_KEY = 'youtube-consent-accepted';
+
+	function revealVideos() {
+		const placeholders = document.querySelectorAll('.youtube-placeholder');
+		const iframes = document.querySelectorAll('.youtube-iframe');
+		
+		placeholders.forEach(p => (p as HTMLElement).style.display = 'none');
+		iframes.forEach(iframe => {
+			const f = iframe as HTMLIFrameElement;
+			if (f.classList.contains('hidden')) {
+				f.src = f.dataset.src || '';
+				f.classList.remove('hidden');
+			}
+		});
+	}
+
+	// Check on load
+	if (localStorage.getItem(STORAGE_KEY) === 'true') {
+		revealVideos();
+	}
+
+	// Double check on each card click
+	document.querySelectorAll('.accept-youtube-cookies').forEach(button => {
+		button.addEventListener('click', () => {
+			localStorage.setItem(STORAGE_KEY, 'true');
+			revealVideos();
+		});
+	});
+</script>

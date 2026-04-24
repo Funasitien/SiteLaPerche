@@ -88,3 +88,12 @@ h1, h2, h3, h4, h5, h6, .title, .btn, .alert {
   font-family: 'Poppins', sans-serif;
   font-weight: 900;
 }
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+:root {
+  --font: "Plus Jakarta Sans", 'Fluent Emoji Color', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --default-font-family: "Plus Jakarta Sans" !important;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --default-mono-font-family: "JetBrains Mono";
+}

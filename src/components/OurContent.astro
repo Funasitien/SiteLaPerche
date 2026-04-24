@@ -1,0 +1,28 @@
+---
+import { Icon } from "astro-icon/components"
+import YoutubeCard from "./YoutubeCard.astro"
+---
+
+<div class="hero bg-secondary text-secondary-content mt-2 md:mt-4 p-2 rounded-box h-full">
+  <div class="hero-content flex-col text-center w-full">
+      <h2 class="text-4xl font-bold">La cuisine sauce LaPerche</h2>
+      <p class="py-6">
+        Pourquoi ne pas regarder nos magnifiques chefs d'oeuvres ?
+        <br />
+        Nous avons concocté pour vous une sélection de vidéos qui mettent en avant notre passion pour le cinéma et notre créativité débordante.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl mb-8">
+        <YoutubeCard 
+          id="dQw4w9WgXcQ" 
+          title="Notre dernier court-métrage" 
+          description="Découvrez l'envers du décor de notre dernière production."
+        />
+        <YoutubeCard 
+          id="dQw4w9WgXcQ" 
+          title="Interview de l'équipe" 
+          description="Les membres de l'association partagent leur passion pour le cinéma."
+        />
+      </div>
+    </div>
+</div>
