@@ -1,0 +1,32 @@
+---
+const navItems = [
+  { label: "Home", href: "/" },
+  { 
+    label: "Services", 
+    children: [
+      { label: "Design", href: "/services/design" },
+      { label: "Development", href: "/services/development" },
+      { label: "Marketing", href: "/services/marketing" },
+    ]
+  },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+];
+---
+
+{navItems.map((item) => (
+  <li>
+    {item.children ? (
+      <details>
+        <summary>{item.label}</summary>
+        <ul>
+          {item.children.map((child) => (
+            <li><a href={child.href}>{child.label}</a></li>
+          ))}
+        </ul>
+      </details>
+    ) : (
+      <a href={item.href}>{item.label}</a>
+    )}
+  </li>
+))}
