@@ -1,5 +1,5 @@
 {
-	"name": "starter-kit-astro",
+	"name": "site-laperche",
 	"type": "module",
 	"version": "1.0.2",
 	"scripts": {
@@ -10,12 +10,12 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/mdx": "^5.0.3",
+		"@astrojs/mdx": "^5.0.4",
 		"@iconify-json/mingcute": "^1.2.7",
 		"@iconify-json/skill-icons": "latest",
 		"@tailwindcss/typography": "^0.5.19",
 		"@tailwindcss/vite": "^4.2.4",
-		"astro": "^6.1.9",
+		"astro": "^6.2.1",
 		"astro-icon": "^1.1.5",
 		"daisyui": "latest",
 		"sharp": "^0.34.5",

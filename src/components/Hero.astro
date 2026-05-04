@@ -2,44 +2,35 @@
 import { Icon } from "astro-icon/components"
 ---
 
-<div class="hero bg-primary text-primary-content mt-2 md:mt-4 p-2 rounded-box h-full">
-    <div class="hero-content flex-col lg:flex-row-reverse">
-        <img
-            src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-            class="max-w-sm rounded-lg shadow-2xl"
-        />
-        <div class="max-w-screen md:max-w-2/3">
-            <div class="flex flex-col md:flex-row items-center gap-1">
-                <h1 class="text-5xl font-bold">Et si on</h1>
-                <div class="flex flex-col md:flex-row items-center gap-1">
-                    <span
-                        class="text-rotate text-5xl font-bold leading-[2] duration-4000 px-1"
-                    >
-                        <span class="justify-items-center">
-                            <span class="title text-secondary-content">jouait</span>
-                            <span class="title text-error-content">créait</span>
-                            <span class="title text-success-content">filmait</span>
-                            <span class="title text-warning-content">imaginait</span>
-                        </span>
-                    </span>
-                    <h1 class="text-5xl font-bold">ensemble ?</h1>
+<section class="hero bg-primary text-primary-content mt-4 p-8 rounded-box">
+    <div class="max-w-4xl mx-auto text-center">
+        <div class="mb-6">
+            <h1 class="text-4xl md:text-5xl font-extrabold">Et si on</h1>
+
+            <div class="text-rotate my-4 font-bold leading-[6] duration-4000 px-1">
+                <div class="justify-items-center">
+                    <span class="title text-5xl md:text-7xl font-extrabold text-secondary-content">jouait</span>
+                    <span class="title text-5xl md:text-7xl font-extrabold text-error-content">créait</span>
+                    <span class="title text-5xl md:text-7xl font-extrabold text-success-content">filmait</span>
+                    <span class="title text-5xl md:text-7xl font-extrabold text-warning-content">imaginait</span>
                 </div>
             </div>
-            <p class="py-6">
-                Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                assumenda excepturi exercitationem quasi. In deleniti eaque aut
-                repudiandae et a id nisi.
-            </p>
-            <div class="flex flex-col md:flex-row gap-4">
-                <a class="btn btn-lg btn-primary">
-                    Découvrir l'asso
-                    <Icon name="mingcute:arrow-right-fill" />
-                </a>
-                <a class="btn btn-lg btn-secondary" href="/join">
-                    Nous rejoindre
-                    <Icon name="mingcute:heart-hand-line" />
-                </a>
-            </div>
+
+            <h2 class="text-4xl md:text-5xl font-extrabold">ensemble ?</h2>
+        </div>
+
+        <p class="max-w-2xl mx-auto py-4 text-base md:text-lg">Une phrase d'accroche simple pour guider le visiteur sans surcharger la page.</p>
+
+        <div class="flex justify-center gap-4 mt-4">
+            <a class="btn btn-lg btn-primary flex items-center gap-2">
+                Découvrir l'asso
+                <Icon name="mingcute:arrow-right-fill" />
+            </a>
+            <a class="btn btn-lg btn-secondary flex items-center gap-2" href="/join">
+                Nous rejoindre
+                <Icon name="mingcute:heart-hand-fill" />
+            </a>
         </div>
     </div>
-</div>
+
+</section>
